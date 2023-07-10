@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate')%>
+
+<h1>All trips</h1>
+
+<% for (let trip of trips){%>
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <% if (trip.images && trip.images[0]) { %>
+            <img class="img-fluid" alt="" src="<%=trip.images[0].url%>">
+            <% } %>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= trip.title %> </h5>
+                <p class="card-text"><%= trip.description %></p>
+                <p class="card-text">
+                    <small class="text-muted"><%= trip.location%></small>
+                </p>
+                <a class="btn btn-primary" href="/trips/<%=trip._id%>">View <%=trip.title%></a>
+            </div>
+        </div>
+    </div>
+</div>
+<% }%>
